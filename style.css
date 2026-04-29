@@ -1,0 +1,23 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; padding: 15px; color: #333; }
+.container { max-width: 450px; margin: 0 auto; }
+
+.card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+h3, h2 { margin-bottom: 15px; }
+
+/* Água */
+.progresso-container { background: #e0e0e0; height: 25px; border-radius: 12px; overflow: hidden; margin: 15px 0; }
+.progresso-bar { background: #007bff; height: 100%; width: 0%; transition: width 0.4s; }
+.btn-agua { width: 100%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
+/* Abas */
+.abas-treino { display: flex; gap: 10px; margin-bottom: 15px; }
+.aba-btn { flex: 1; padding: 10px; border: none; border-radius: 8px; background: #ddd; cursor: pointer; font-weight: bold; }
+.aba-btn.active { background: #333; color: white; }
+
+/* Exercícios */
+.item-exercicio { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; }
+.item-exercicio:last-child { border-bottom: none; }
+.info-ex strong { display: block; font-size: 1.1rem; }
+.info-ex span { color: #666; font-size: 0.9rem; }
+.check-ex { width: 25px; height: 25px; accent-color: #28a745; }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymTrack - Treino e Hidratação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <section class="card agua-section">
+            <h3>💧 Hidratação Diária</h3>
+            <p>Meta: 4L | <span id="consumo-atual">0</span>ml</p>
+            <div class="progresso-container">
+                <div id="barra-agua" class="progresso-bar"></div>
+            </div>
+            <button onclick="beberAgua()" class="btn-agua">Beber 750ml (1 Garrafa)</button>
+        </section>
+
+        <nav class="abas-treino">
+            <button class="aba-btn active" onclick="trocarTreino('A', this)">Treino A</button>
+            <button class="aba-btn" onclick="trocarTreino('B', this)">Treino B</button>
+            <button class="aba-btn" onclick="trocarTreino('C', this)">Treino C</button>
+        </nav>
+
+        <main class="card">
+            <h2 id="titulo-sessao">Pernas e Abdominais</h2>
+            <div id="lista-exercicios">
+                </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
