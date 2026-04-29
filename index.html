@@ -2,29 +2,33 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GymTrack - Treino e Hidratação</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Gym</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <section class="card agua-section">
-            <h3>💧 Hidratação Diária</h3>
-            <p>Meta: 4L | <span id="consumo-atual">0</span>ml</p>
-            <div class="progresso-container">
-                <div id="barra-agua" class="progresso-bar"></div>
-            </div>
-            <button onclick="beberAgua()" class="btn-agua">Beber 750ml (1 Garrafa)</button>
-        </section>
+    <div class="app-container">
+       <header class="header-agua">
+    <div class="agua-info">
+        <span>💧 <strong><span id="consumo-atual">0</span>ml</strong> / 4L</span>
+        <div class="agua-controles">
+            <button onclick="removerAgua()" class="btn-drop btn-remover">-</button>
+            <button onclick="beberAgua()" class="btn-drop">+</button>
+        </div>
+    </div>
+    <div class="progresso-container">
+        <div id="barra-agua" class="progresso-bar"></div>
+    </div>
+</header>
 
-        <nav class="abas-treino">
-            <button class="aba-btn active" onclick="trocarTreino('A', this)">Treino A</button>
-            <button class="aba-btn" onclick="trocarTreino('B', this)">Treino B</button>
-            <button class="aba-btn" onclick="trocarTreino('C', this)">Treino C</button>
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="trocarTreino('A', this)">TREINO A</button>
+            <button class="tab-btn" onclick="trocarTreino('B', this)">TREINO B</button>
+            <button class="tab-btn" onclick="trocarTreino('C', this)">TREINO C</button>
         </nav>
 
-        <main class="card">
-            <h2 id="titulo-sessao">Pernas e Abdominais</h2>
+        <main class="lista-container">
+            <h2 id="titulo-sessao">Carregando...</h2>
             <div id="lista-exercicios">
                 </div>
         </main>

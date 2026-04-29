@@ -1,23 +1,165 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; padding: 15px; color: #333; }
-.container { max-width: 450px; margin: 0 auto; }
+:root {
+    --bg: #000000;
+    --card: #1c1c1e; /* Cinza um pouco mais claro que o fundo (padrão iOS) */
+    --primary: #0A84FF; /* Azul vibrante */
+    --success: #30D158;
+    --text: #FFFFFF;
+    --text-secondary: #8E8E93;
+    --border: #38383A;
+}
 
-.card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
-h3, h2 { margin-bottom: 15px; }
+* { 
+    box-sizing: border-box; 
+    -webkit-tap-highlight-color: transparent; /* Remove o quadrado cinza ao tocar no Android */
+    user-select: none; /* Impede selecionar texto ao clicar rápido */
+}
 
-/* Água */
-.progresso-container { background: #e0e0e0; height: 25px; border-radius: 12px; overflow: hidden; margin: 15px 0; }
-.progresso-bar { background: #007bff; height: 100%; width: 0%; transition: width 0.4s; }
-.btn-agua { width: 100%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+body { 
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg); 
+    color: var(--text);
+    margin: 0;
+    padding-bottom: env(safe-area-inset-bottom); /* Suporte para notch de iPhones novos */
+}
 
-/* Abas */
-.abas-treino { display: flex; gap: 10px; margin-bottom: 15px; }
-.aba-btn { flex: 1; padding: 10px; border: none; border-radius: 8px; background: #ddd; cursor: pointer; font-weight: bold; }
-.aba-btn.active { background: #333; color: white; }
+.app-container { 
+    max-width: 500px; 
+    margin: 0 auto; 
+}
 
-/* Exercícios */
-.item-exercicio { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; }
-.item-exercicio:last-child { border-bottom: none; }
-.info-ex strong { display: block; font-size: 1.1rem; }
-.info-ex span { color: #666; font-size: 0.9rem; }
-.check-ex { width: 25px; height: 25px; accent-color: #28a745; }
+/* Header Fixo */
+.header-agua {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px); /* Efeito de vidro fosco */
+    -webkit-backdrop-filter: blur(20px);
+    padding: 20px;
+    z-index: 100;
+    border-bottom: 0.5px solid var(--border);
+}
+
+.agua-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.agua-info span {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.btn-drop {
+    background: var(--primary);
+    border: none;
+    color: white;
+    width: 44px; /* Tamanho mínimo recomendado para toque */
+    height: 44px;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3);
+}
+
+.btn-drop:active {
+    transform: scale(0.92); /* Efeito de clique */
+}
+
+.progresso-container {
+    background: #2c2c2e;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progresso-bar {
+    background: var(--primary);
+    width: 0%;
+    height: 100%;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    padding: 15px;
+    gap: 8px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #1c1c1e;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    background: #3a3a3c;
+    color: var(--text);
+}
+
+/* Lista de Exercícios */
+.lista-container { 
+    padding: 0 16px 40px 16px; 
+}
+
+h2 { 
+    font-size: 1.2rem; 
+    margin: 10px 0 20px 4px; 
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.item-ex {
+    background: var(--card);
+    margin-bottom: 10px;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.info-ex strong { 
+    display: block; 
+    font-size: 1.05rem; 
+    margin-bottom: 4px; 
+    color: #fff;
+}
+
+.info-ex span { 
+    color: var(--text-secondary); 
+    font-size: 0.85rem; 
+}
+
+/* Efeito de Check - Riscado */
+.item-ex:has(.check-ex:checked) {
+    opacity: 0.5;
+}
+
+.item-ex:has(.check-ex:checked) strong {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+/* Checkbox estilo iOS */
+.check-ex {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    accent-color: var(--success);
+    cursor: pointer;
+}
