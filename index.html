@@ -4,193 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000">
-    <meta name="description" content="My Gym - Controle seus treinos, hidratação e medidas corporais">
-    <title>My Gym | Academia Completa</title>
+    <title>My Gym | Treinos e Medidas</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <div class="app-container">
-        <!-- Header com controle de água -->
-        <header class="header-agua" role="banner">
+        <!-- Header Água (SEU código original funcionando) -->
+        <header class="header-agua">
             <div class="agua-info">
-                <span class="agua-label">
-                    💧 <strong id="consumo-atual">0</strong><span id="unidade-consumo">ml</span>
-                </span>
-                <span class="agua-meta">meta: <strong id="meta-agua">4</strong>L</span>
-                <button id="btn-config-metas" class="btn-icon" aria-label="Configurar metas">⚙️</button>
-            </div>
-            
-            <div class="agua-controles" role="group" aria-label="Controle de água">
-                <button id="btn-remover-agua" class="btn-drop btn-remover" aria-label="Remover 250ml de água">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                </button>
-                
-                <div class="progresso-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="4000">
-                    <div id="barra-agua" class="progresso-bar" style="width: 0%"></div>
+                <span>💧 <strong><span id="consumo-atual">0</span>ml</strong> / <span id="meta-agua">4</span>L</span>
+                <div class="agua-controles">
+                    <button id="btn-remover-agua" class="btn-drop btn-remover">-</button>
+                    <button id="btn-adicionar-agua" class="btn-drop">+</button>
                 </div>
-                
-                <button id="btn-adicionar-agua" class="btn-drop" aria-label="Adicionar 250ml de água">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                </button>
             </div>
-            
-            <div class="agua-stats">
-                <span id="porcentagem-agua">0%</span>
-                <span id="copos-restantes">16</span> copos restantes
+            <div class="progresso-container">
+                <div id="barra-agua" class="progresso-bar"></div>
             </div>
         </header>
 
-        <!-- Navegação Principal -->
-        <nav class="main-nav">
-            <button class="main-nav-btn active" data-nav="treinos">🏋️ Treinos</button>
-            <button class="main-nav-btn" data-nav="medidas">📏 Medidas</button>
-            <button class="main-nav-btn" data-nav="progresso">📈 Progresso</button>
-            <button class="main-nav-btn" data-nav="conquistas">🏆 Conquistas</button>
-        </nav>
+        <!-- Navegação entre Treinos e Medidas -->
+        <div class="nav-buttons">
+            <button id="nav-treinos" class="nav-btn active">🏋️ TREINOS</button>
+            <button id="nav-medidas" class="nav-btn">📏 MEDIDAS</button>
+            <button id="nav-grafico" class="nav-btn">📈 GRÁFICO</button>
+        </div>
 
-        <!-- ===== SEÇÃO TREINOS ===== -->
-        <div id="section-treinos" class="nav-section active">
-            <nav class="tabs" aria-label="Tipos de treino">
-                <button class="tab-btn active" data-treino="A">🏋️ TREINO A</button>
-                <button class="tab-btn" data-treino="B">💪 TREINO B</button>
-                <button class="tab-btn" data-treino="C">🎯 TREINO C</button>
+        <!-- ===== SEÇÃO TREINOS (SEU CÓDIGO ORIGINAL) ===== -->
+        <div id="section-treinos" class="section active">
+            <nav class="tabs">
+                <button class="tab-btn active" data-treino="A">TREINO A</button>
+                <button class="tab-btn" data-treino="B">TREINO B</button>
+                <button class="tab-btn" data-treino="C">TREINO C</button>
             </nav>
 
             <main class="lista-container">
-                <div class="sessao-header">
-                    <h2 id="titulo-sessao">Pernas e Abdominais</h2>
-                    <div class="progresso-treino">
-                        <span id="exercicios-feitos">0</span>/<span id="total-exercicios">0</span>
-                        <div class="mini-progresso">
-                            <div id="barra-progresso-treino" class="mini-progresso-bar"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="lista-exercicios" class="lista-exercicios"></div>
-                
-                <button id="resetar-treino" class="btn-reset">🔄 Resetar progresso</button>
+                <h2 id="titulo-sessao">Carregando...</h2>
+                <div id="lista-exercicios"></div>
             </main>
         </div>
 
         <!-- ===== SEÇÃO MEDIDAS CORPORAIS ===== -->
-        <div id="section-medidas" class="nav-section">
+        <div id="section-medidas" class="section">
             <div class="medidas-header">
-                <h3>📏 Medidas Corporais</h3>
-                <button id="btn-adicionar-medida" class="btn-add-medida">+ Nova Medição</button>
+                <h3>📏 Minhas Medidas</h3>
+                <button id="btn-nova-medida" class="btn-add">+ Nova Medição</button>
             </div>
-            
+
             <!-- Cards das últimas medidas -->
-            <div class="medidas-grid" id="medidas-grid">
+            <div class="medidas-grid">
                 <div class="medida-card">
                     <span class="medida-nome">💪 Bíceps E</span>
-                    <span class="medida-valor" id="biceps-e-valor">--cm</span>
-                    <span class="medida-evolucao" id="biceps-e-evol"></span>
+                    <span class="medida-valor" id="display-biceps_e">--cm</span>
                 </div>
                 <div class="medida-card">
                     <span class="medida-nome">💪 Bíceps D</span>
-                    <span class="medida-valor" id="biceps-d-valor">--cm</span>
-                    <span class="medida-evolucao" id="biceps-d-evol"></span>
+                    <span class="medida-valor" id="display-biceps_d">--cm</span>
                 </div>
                 <div class="medida-card">
                     <span class="medida-nome">🦾 Antebraço E</span>
-                    <span class="medida-valor" id="antebraco-e-valor">--cm</span>
-                    <span class="medida-evolucao" id="antebraco-e-evol"></span>
+                    <span class="medida-valor" id="display-antebraco_e">--cm</span>
                 </div>
                 <div class="medida-card">
                     <span class="medida-nome">🦾 Antebraço D</span>
-                    <span class="medida-valor" id="antebraco-d-valor">--cm</span>
-                    <span class="medida-evolucao" id="antebraco-d-evol"></span>
+                    <span class="medida-valor" id="display-antebraco_d">--cm</span>
                 </div>
                 <div class="medida-card">
                     <span class="medida-nome">🦵 Coxa E</span>
-                    <span class="medida-valor" id="coxa-e-valor">--cm</span>
-                    <span class="medida-evolucao" id="coxa-e-evol"></span>
+                    <span class="medida-valor" id="display-coxa_e">--cm</span>
                 </div>
                 <div class="medida-card">
                     <span class="medida-nome">🦵 Coxa D</span>
-                    <span class="medida-valor" id="coxa-d-valor">--cm</span>
-                    <span class="medida-evolucao" id="coxa-d-evol"></span>
+                    <span class="medida-valor" id="display-coxa_d">--cm</span>
                 </div>
                 <div class="medida-card">
                     <span class="medida-nome">🦿 Panturrilha E</span>
-                    <span class="medida-valor" id="panturrilha-e-valor">--cm</span>
-                    <span class="medida-evolucao" id="panturrilha-e-evol"></span>
+                    <span class="medida-valor" id="display-panturrilha_e">--cm</span>
                 </div>
                 <div class="medida-card">
                     <span class="medida-nome">🦿 Panturrilha D</span>
-                    <span class="medida-valor" id="panturrilha-d-valor">--cm</span>
-                    <span class="medida-evolucao" id="panturrilha-d-evol"></span>
+                    <span class="medida-valor" id="display-panturrilha_d">--cm</span>
                 </div>
                 <div class="medida-card">
                     <span class="medida-nome">🎯 Abdômen</span>
-                    <span class="medida-valor" id="abdomen-valor">--cm</span>
-                    <span class="medida-evolucao" id="abdomen-evol"></span>
+                    <span class="medida-valor" id="display-abdomen">--cm</span>
                 </div>
                 <div class="medida-card">
                     <span class="medida-nome">💪 Peitoral</span>
-                    <span class="medida-valor" id="peitoral-valor">--cm</span>
-                    <span class="medida-evolucao" id="peitoral-evol"></span>
+                    <span class="medida-valor" id="display-peitoral">--cm</span>
                 </div>
             </div>
-            
-            <!-- Histórico de medidas -->
-            <div class="historico-medidas">
-                <h4>📜 Histórico de Medições</h4>
-                <div id="lista-historico-medidas" class="lista-historico"></div>
+
+            <!-- Histórico -->
+            <div class="historico-area">
+                <h4>📜 Últimas medições</h4>
+                <div id="lista-historico" class="lista-historico"></div>
             </div>
         </div>
 
-        <!-- ===== SEÇÃO PROGRESSO ===== -->
-        <div id="section-progresso" class="nav-section">
-            <div class="grafico-section">
-                <div class="grafico-header">
-                    <h3>📈 Progresso Semanal</h3>
-                    <div class="grafico-toggles">
-                        <button class="grafico-toggle active" data-tipo="agua">💧 Água</button>
-                        <button class="grafico-toggle" data-tipo="treinos">💪 Treinos</button>
-                        <button class="grafico-toggle" data-tipo="medidas">📏 Medidas</button>
-                    </div>
-                </div>
-                
-                <div class="grafico-container">
-                    <canvas id="grafico-semanal" width="400" height="300"></canvas>
-                </div>
-                
-                <div class="grafico-stats">
-                    <div class="stat-card">
-                        <span class="stat-label">🔥 Sequência atual</span>
-                        <span class="stat-value" id="sequencia-atual">0</span>
-                        <span class="stat-unit">dias</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-label">🏆 Melhor sequência</span>
-                        <span class="stat-value" id="melhor-sequencia">0</span>
-                        <span class="stat-unit">dias</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-label">✅ Taxa de conclusão</span>
-                        <span class="stat-value" id="taxa-conclusao">0</span>
-                        <span class="stat-unit">%</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-label">📊 vs. média</span>
-                        <span class="stat-value" id="comparacao-media">0</span>
-                        <span class="stat-unit" id="comparacao-texto">%</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Evolução das medidas -->
-            <div class="evolucao-medidas">
+        <!-- ===== SEÇÃO GRÁFICO ===== -->
+        <div id="section-grafico" class="section">
+            <div class="grafico-card">
                 <h3>📊 Evolução das Medidas</h3>
-                <select id="select-medida-grafico" class="select-medida">
+                <select id="select-medida" class="select-medida">
                     <option value="biceps_e">Bíceps Esquerdo</option>
                     <option value="biceps_d">Bíceps Direito</option>
                     <option value="antebraco_e">Antebraço Esquerdo</option>
@@ -202,107 +119,48 @@
                     <option value="abdomen">Abdômen</option>
                     <option value="peitoral">Peitoral</option>
                 </select>
-                <div class="grafico-container-mini">
-                    <canvas id="grafico-evolucao-medidas" width="400" height="250"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- ===== SEÇÃO CONQUISTAS ===== -->
-        <div id="section-conquistas" class="nav-section">
-            <h3>🏅 Suas Conquistas</h3>
-            <div id="conquistas-container" class="conquistas-grid"></div>
-            
-            <div class="export-buttons">
-                <button id="btn-export-json" class="btn-export">📁 Exportar JSON</button>
-                <button id="btn-export-csv" class="btn-export">📊 Exportar CSV</button>
-                <button id="btn-import" class="btn-export">📂 Importar Backup</button>
+                <canvas id="grafico-medidas" width="400" height="250"></canvas>
             </div>
         </div>
     </div>
-    
-    <!-- Modal de Medidas -->
+
+    <!-- Modal para adicionar medidas -->
     <div id="modal-medidas" class="modal" style="display: none;">
         <div class="modal-content">
             <h3>📏 Registrar Medidas</h3>
-            <p class="modal-data" id="modal-data">Data: Hoje</p>
+            <p id="modal-data" style="color: #0A84FF; margin-bottom: 15px;"></p>
             
             <div class="medidas-form">
-                <div class="form-group">
-                    <label>💪 Bíceps Esquerdo (cm)</label>
-                    <input type="number" id="med-biceps-e" step="0.1" placeholder="0.0">
+                <div class="form-row">
+                    <div class="form-group"><label>Bíceps E (cm)</label><input type="number" id="biceps_e" step="0.1" placeholder="0.0"></div>
+                    <div class="form-group"><label>Bíceps D (cm)</label><input type="number" id="biceps_d" step="0.1" placeholder="0.0"></div>
                 </div>
-                <div class="form-group">
-                    <label>💪 Bíceps Direito (cm)</label>
-                    <input type="number" id="med-biceps-d" step="0.1" placeholder="0.0">
+                <div class="form-row">
+                    <div class="form-group"><label>Antebraço E</label><input type="number" id="antebraco_e" step="0.1" placeholder="0.0"></div>
+                    <div class="form-group"><label>Antebraço D</label><input type="number" id="antebraco_d" step="0.1" placeholder="0.0"></div>
                 </div>
-                <div class="form-group">
-                    <label>🦾 Antebraço Esquerdo (cm)</label>
-                    <input type="number" id="med-antebraco-e" step="0.1" placeholder="0.0">
+                <div class="form-row">
+                    <div class="form-group"><label>Coxa E</label><input type="number" id="coxa_e" step="0.1" placeholder="0.0"></div>
+                    <div class="form-group"><label>Coxa D</label><input type="number" id="coxa_d" step="0.1" placeholder="0.0"></div>
                 </div>
-                <div class="form-group">
-                    <label>🦾 Antebraço Direito (cm)</label>
-                    <input type="number" id="med-antebraco-d" step="0.1" placeholder="0.0">
+                <div class="form-row">
+                    <div class="form-group"><label>Panturrilha E</label><input type="number" id="panturrilha_e" step="0.1" placeholder="0.0"></div>
+                    <div class="form-group"><label>Panturrilha D</label><input type="number" id="panturrilha_d" step="0.1" placeholder="0.0"></div>
                 </div>
-                <div class="form-group">
-                    <label>🦵 Coxa Esquerda (cm)</label>
-                    <input type="number" id="med-coxa-e" step="0.1" placeholder="0.0">
-                </div>
-                <div class="form-group">
-                    <label>🦵 Coxa Direita (cm)</label>
-                    <input type="number" id="med-coxa-d" step="0.1" placeholder="0.0">
-                </div>
-                <div class="form-group">
-                    <label>🦿 Panturrilha Esquerda (cm)</label>
-                    <input type="number" id="med-panturrilha-e" step="0.1" placeholder="0.0">
-                </div>
-                <div class="form-group">
-                    <label>🦿 Panturrilha Direita (cm)</label>
-                    <input type="number" id="med-panturrilha-d" step="0.1" placeholder="0.0">
-                </div>
-                <div class="form-group">
-                    <label>🎯 Abdômen (cm)</label>
-                    <input type="number" id="med-abdomen" step="0.1" placeholder="0.0">
-                </div>
-                <div class="form-group">
-                    <label>💪 Peitoral (cm)</label>
-                    <input type="number" id="med-peitoral" step="0.1" placeholder="0.0">
+                <div class="form-row">
+                    <div class="form-group"><label>Abdômen</label><input type="number" id="abdomen" step="0.1" placeholder="0.0"></div>
+                    <div class="form-group"><label>Peitoral</label><input type="number" id="peitoral" step="0.1" placeholder="0.0"></div>
                 </div>
             </div>
             
             <div class="modal-buttons">
-                <button id="salvar-medidas" class="btn-primary">Salvar</button>
-                <button id="fechar-modal-medidas" class="btn-secondary">Cancelar</button>
+                <button id="salvar-medidas" class="btn-salvar">Salvar</button>
+                <button id="fechar-modal" class="btn-cancelar">Cancelar</button>
             </div>
         </div>
     </div>
-    
-    <!-- Modal de Metas -->
-    <div id="modal-metas" class="modal" style="display: none;">
-        <div class="modal-content">
-            <h3>⚙️ Configurar Metas</h3>
-            
-            <div class="form-group">
-                <label>💧 Meta de água diária (ml)</label>
-                <input type="range" id="meta-agua-slider" min="1000" max="6000" step="250" value="4000">
-                <span id="meta-agua-valor">4000ml</span>
-            </div>
-            
-            <div class="form-group">
-                <label>🏋️ Treinos por semana</label>
-                <input type="number" id="meta-treinos" min="1" max="7" value="5">
-            </div>
-            
-            <div class="modal-buttons">
-                <button id="salvar-metas" class="btn-primary">Salvar</button>
-                <button id="fechar-modal-metas" class="btn-secondary">Cancelar</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Toast de notificação -->
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    
+
+    <div id="toast" class="toast"></div>
     <script src="script.js"></script>
 </body>
-</html>
+</html> 
