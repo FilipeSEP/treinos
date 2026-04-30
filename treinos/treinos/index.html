@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>My Gym | Treinos e Medidas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Água (SEU código original funcionando) -->
+        <header class="header-agua">
+            <div class="agua-info">
+                <span>💧 <strong><span id="consumo-atual">0</span>ml</strong> / <span id="meta-agua">4</span>L</span>
+                <div class="agua-controles">
+                    <button id="btn-remover-agua" class="btn-drop btn-remover">-</button>
+                    <button id="btn-adicionar-agua" class="btn-drop">+</button>
+                </div>
+            </div>
+            <div class="progresso-container">
+                <div id="barra-agua" class="progresso-bar"></div>
+            </div>
+        </header>
+
+        <!-- Navegação entre Treinos e Medidas -->
+        <div class="nav-buttons">
+            <button id="nav-treinos" class="nav-btn active">🏋️ TREINOS</button>
+            <button id="nav-medidas" class="nav-btn">📏 MEDIDAS</button>
+            <button id="nav-grafico" class="nav-btn">📈 GRÁFICO</button>
+        </div>
+
+        <!-- ===== SEÇÃO TREINOS (SEU CÓDIGO ORIGINAL) ===== -->
+        <div id="section-treinos" class="section active">
+            <nav class="tabs">
+                <button class="tab-btn active" data-treino="A">TREINO A</button>
+                <button class="tab-btn" data-treino="B">TREINO B</button>
+                <button class="tab-btn" data-treino="C">TREINO C</button>
+            </nav>
+
+            <main class="lista-container">
+                <h2 id="titulo-sessao">Carregando...</h2>
+                <div id="lista-exercicios"></div>
+            </main>
+        </div>
+
+        <!-- ===== SEÇÃO MEDIDAS CORPORAIS ===== -->
+        <div id="section-medidas" class="section">
+            <div class="medidas-header">
+                <h3>📏 Minhas Medidas</h3>
+                <button id="btn-nova-medida" class="btn-add">+ Nova Medição</button>
+            </div>
+
+            <!-- Cards das últimas medidas -->
+            <div class="medidas-grid">
+                <div class="medida-card">
+                    <span class="medida-nome">💪 Bíceps E</span>
+                    <span class="medida-valor" id="display-biceps_e">--cm</span>
+                </div>
+                <div class="medida-card">
+                    <span class="medida-nome">💪 Bíceps D</span>
+                    <span class="medida-valor" id="display-biceps_d">--cm</span>
+                </div>
+                <div class="medida-card">
+                    <span class="medida-nome">🦾 Antebraço E</span>
+                    <span class="medida-valor" id="display-antebraco_e">--cm</span>
+                </div>
+                <div class="medida-card">
+                    <span class="medida-nome">🦾 Antebraço D</span>
+                    <span class="medida-valor" id="display-antebraco_d">--cm</span>
+                </div>
+                <div class="medida-card">
+                    <span class="medida-nome">🦵 Coxa E</span>
+                    <span class="medida-valor" id="display-coxa_e">--cm</span>
+                </div>
+                <div class="medida-card">
+                    <span class="medida-nome">🦵 Coxa D</span>
+                    <span class="medida-valor" id="display-coxa_d">--cm</span>
+                </div>
+                <div class="medida-card">
+                    <span class="medida-nome">🦿 Panturrilha E</span>
+                    <span class="medida-valor" id="display-panturrilha_e">--cm</span>
+                </div>
+                <div class="medida-card">
+                    <span class="medida-nome">🦿 Panturrilha D</span>
+                    <span class="medida-valor" id="display-panturrilha_d">--cm</span>
+                </div>
+                <div class="medida-card">
+                    <span class="medida-nome">🎯 Abdômen</span>
+                    <span class="medida-valor" id="display-abdomen">--cm</span>
+                </div>
+                <div class="medida-card">
+                    <span class="medida-nome">💪 Peitoral</span>
+                    <span class="medida-valor" id="display-peitoral">--cm</span>
+                </div>
+            </div>
+
+            <!-- Histórico -->
+            <div class="historico-area">
+                <h4>📜 Últimas medições</h4>
+                <div id="lista-historico" class="lista-historico"></div>
+            </div>
+        </div>
+
+        <!-- ===== SEÇÃO GRÁFICO ===== -->
+        <div id="section-grafico" class="section">
+            <div class="grafico-card">
+                <h3>📊 Evolução das Medidas</h3>
+                <select id="select-medida" class="select-medida">
+                    <option value="biceps_e">Bíceps Esquerdo</option>
+                    <option value="biceps_d">Bíceps Direito</option>
+                    <option value="antebraco_e">Antebraço Esquerdo</option>
+                    <option value="antebraco_d">Antebraço Direito</option>
+                    <option value="coxa_e">Coxa Esquerda</option>
+                    <option value="coxa_d">Coxa Direita</option>
+                    <option value="panturrilha_e">Panturrilha Esquerda</option>
+                    <option value="panturrilha_d">Panturrilha Direita</option>
+                    <option value="abdomen">Abdômen</option>
+                    <option value="peitoral">Peitoral</option>
+                </select>
+                <canvas id="grafico-medidas" width="400" height="250"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para adicionar medidas -->
+    <div id="modal-medidas" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>📏 Registrar Medidas</h3>
+            <p id="modal-data" style="color: #0A84FF; margin-bottom: 15px;"></p>
+            
+            <div class="medidas-form">
+                <div class="form-row">
+                    <div class="form-group"><label>Bíceps E (cm)</label><input type="number" id="biceps_e" step="0.1" placeholder="0.0"></div>
+                    <div class="form-group"><label>Bíceps D (cm)</label><input type="number" id="biceps_d" step="0.1" placeholder="0.0"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Antebraço E</label><input type="number" id="antebraco_e" step="0.1" placeholder="0.0"></div>
+                    <div class="form-group"><label>Antebraço D</label><input type="number" id="antebraco_d" step="0.1" placeholder="0.0"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Coxa E</label><input type="number" id="coxa_e" step="0.1" placeholder="0.0"></div>
+                    <div class="form-group"><label>Coxa D</label><input type="number" id="coxa_d" step="0.1" placeholder="0.0"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Panturrilha E</label><input type="number" id="panturrilha_e" step="0.1" placeholder="0.0"></div>
+                    <div class="form-group"><label>Panturrilha D</label><input type="number" id="panturrilha_d" step="0.1" placeholder="0.0"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Abdômen</label><input type="number" id="abdomen" step="0.1" placeholder="0.0"></div>
+                    <div class="form-group"><label>Peitoral</label><input type="number" id="peitoral" step="0.1" placeholder="0.0"></div>
+                </div>
+            </div>
+            
+            <div class="modal-buttons">
+                <button id="salvar-medidas" class="btn-salvar">Salvar</button>
+                <button id="fechar-modal" class="btn-cancelar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
