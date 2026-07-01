@@ -4,44 +4,44 @@
 // pelo nome real da imagem que você vai subir pro GitHub.
 const treinos = {
     "A": { titulo: "Costas e Bíceps (Puxar)", exercicios: [
-        { nome: "Puxada Alta no Pulley", info: "4x10-12 | Aquecimento + carga progressiva", img: "imagens/puxada-alta-pulley.jpg" },
-        { nome: "Remada Articulada", info: "3x8-10 | Carga no miolo das costas", img: "imagens/remada-articulada.jpg" },
-        { nome: "Puxada Articulada", info: "3x10-12", img: "imagens/puxada-articulada.jpg" },
-        { nome: "Remada Baixa no Triângulo", info: "3x10-12 | Esmagar escápulas no final", img: "imagens/remada-baixa-triangulo.jpg" },
-        { nome: "Rosca Direta com Halteres", info: "3x8-10 | Básico de braço", img: "imagens/rosca-direta-halteres.jpg" },
-        { nome: "Rosca Scott na Máquina", info: "3x10-12 | Isolamento no pico", img: "imagens/rosca-scott-maquina.jpg" },
-        { nome: "Rosca Martelo com Halteres", info: "3x10-12 | Braquial / volume lateral", img: "imagens/rosca-martelo-halteres.jpg" }
+        { nome: "Puxada Alta no Pulley", info: "4x10-12 | Aquecimento + carga progressiva", img: "img/puxada-alta-pulley.jpg" },
+        { nome: "Remada Articulada", info: "3x8-10 | Carga no miolo das costas", img: "img/remada-articulada.jpg" },
+        { nome: "Puxada Articulada", info: "3x10-12", img: "img/puxada-articulada.jpg" },
+        { nome: "Remada Baixa no Triângulo", info: "3x10-12 | Esmagar escápulas no final", img: "img/remada-baixa-triangulo.jpg" },
+        { nome: "Rosca Direta com Halteres", info: "3x8-10 | Básico de braço", img: "img/rosca-direta-halteres.jpg" },
+        { nome: "Rosca Scott na Máquina", info: "3x10-12 | Isolamento no pico", img: "img/rosca-scott-maquina.jpg" },
+        { nome: "Rosca Martelo com Halteres", info: "3x10-12 | Braquial / volume lateral", img: "img/rosca-martelo-halteres.jpg" }
     ]},
     "B": { titulo: "Peito, Ombro e Tríceps (Empurrar)", exercicios: [
-        { nome: "Supino Inclinado (Máquina)", info: "4x8-10 | Peito superior", img: "imagens/supino-inclinado-maquina.jpg" },
-        { nome: "Supino Reto (Máquina)", info: "3x8-10 | Carga com segurança", img: "imagens/supino-reto-maquina.jpg" },
-        { nome: "Crucifixo Inclinado na Polia", info: "3x10-12 | Tensão constante no topo", img: "imagens/crucifixo-inclinado-polia.jpg" },
-        { nome: "Desenvolvimento com Halteres", info: "3x8-10 | Ombro anterior", img: "imagens/desenvolvimento-halteres.jpg" },
-        { nome: "Elevação Lateral na Máquina", info: "4x12-15 | Ombro lateral / largura", img: "imagens/elevacao-lateral-maquina.jpg" }
+        { nome: "Supino Inclinado (Máquina)", info: "4x8-10 | Peito superior", img: "img/supino-inclinado-maquina.jpg" },
+        { nome: "Supino Reto (Máquina)", info: "3x8-10 | Carga com segurança", img: "img/supino-reto-maquina.jpg" },
+        { nome: "Crucifixo Inclinado na Polia", info: "3x10-12 | Tensão constante no topo", img: "img/crucifixo-inclinado-polia.jpg" },
+        { nome: "Desenvolvimento com Halteres", info: "3x8-10 | Ombro anterior", img: "img/desenvolvimento-halteres.jpg" },
+        { nome: "Elevação Lateral na Máquina", info: "4x12-15 | Ombro lateral / largura", img: "img/elevacao-lateral-maquina.jpg" }
     ]},
     "C": { titulo: "Pernas Completo e Panturrilhas", exercicios: [
-        { nome: "Agachamento Hack", info: "4x8-10 | Sem tirar o quadril do banco", img: "imagens/agachamento-hack.jpg" },
-        { nome: "Leg Press 45°", info: "4x10-12 | Carga alta", img: "imagens/leg-press-45.jpg" },
-        { nome: "Cadeira Flexora", info: "4x10-12 | Foco posterior de coxa", img: "imagens/cadeira-flexora.jpg" },
-        { nome: "Cadeira Extensora", info: "3x12-15 | Até a falha total", img: "imagens/cadeira-extensora.jpg" },
-        { nome: "Mesa Flexora", info: "3x10-12", img: "imagens/mesa-flexora.jpg" },
-        { nome: "Panturrilha no Leg Press", info: "4x12-15 | Pausa de 2s no alongamento", img: "imagens/panturrilha-leg-press.jpg" }
+        { nome: "Agachamento Hack", info: "4x8-10 | Sem tirar o quadril do banco", img: "img/agachamento-hack.jpg" },
+        { nome: "Leg Press 45°", info: "4x10-12 | Carga alta", img: "img/leg-press-45.jpg" },
+        { nome: "Cadeira Flexora", info: "4x10-12 | Foco posterior de coxa", img: "img/cadeira-flexora.jpg" },
+        { nome: "Cadeira Extensora", info: "3x12-15 | Até a falha total", img: "img/cadeira-extensora.jpg" },
+        { nome: "Mesa Flexora", info: "3x10-12", img: "img/mesa-flexora.jpg" },
+        { nome: "Panturrilha no Leg Press", info: "4x12-15 | Pausa de 2s no alongamento", img: "img/panturrilha-leg-press.jpg" }
     ]},
     "D": { titulo: "Costas, Ombros (Posterior) e Bíceps", exercicios: [
-        { nome: "Pull Down na Polia", info: "3x12 | Isola o dorsal", img: "imagens/pull-down-polia.jpg" },
-        { nome: "Puxada Alta no Pulley", info: "3x10-12", img: "imagens/puxada-alta-pulley.jpg" },
-        { nome: "Remada Articulada", info: "3x10", img: "imagens/remada-articulada.jpg" },
-        { nome: "Crucifixo Inverso (Máquina)", info: "4x12-15 | Deltóide posterior", img: "imagens/crucifixo-inverso-maquina.jpg" },
-        { nome: "Face Pull na Polia", info: "3x12-15 | Saúde do ombro", img: "imagens/face-pull-polia.jpg" },
-        { nome: "Rosca Inclinada com Halteres (45°)", info: "3x10-12 | Máximo alongamento", img: "imagens/rosca-inclinada-halteres-45.jpg" },
-        { nome: "Rosca na Polia Baixa", info: "3x12-15 | Tensão constante", img: "imagens/rosca-polia-baixa.jpg" }
+        { nome: "Pull Down na Polia", info: "3x12 | Isola o dorsal", img: "img/pull-down-polia.jpg" },
+        { nome: "Puxada Alta no Pulley", info: "3x10-12", img: "img/puxada-alta-pulley.jpg" },
+        { nome: "Remada Articulada", info: "3x10", img: "img/remada-articulada.jpg" },
+        { nome: "Crucifixo Inverso (Máquina)", info: "4x12-15 | Deltóide posterior", img: "img/crucifixo-inverso-maquina.jpg" },
+        { nome: "Face Pull na Polia", info: "3x12-15 | Saúde do ombro", img: "img/face-pull-polia.jpg" },
+        { nome: "Rosca Inclinada com Halteres (45°)", info: "3x10-12 | Máximo alongamento", img: "img/rosca-inclinada-halteres-45.jpg" },
+        { nome: "Rosca na Polia Baixa", info: "3x12-15 | Tensão constante", img: "img/rosca-polia-baixa.jpg" }
     ]},
     "E": { titulo: "Peito, Ombro Lateral e Tríceps", exercicios: [
-        { nome: "Supino Inclinado (Máquina)", info: "4x8-10", img: "imagens/supino-inclinado-maquina.jpg" },
-        { nome: "Supino Reto (Máquina)", info: "3x10", img: "imagens/supino-reto-maquina.jpg" },
-        { nome: "Crossover na Polia", info: "3x12-15 | Esmagar o peito no meio", img: "imagens/crossover-polia.jpg" },
-        { nome: "Elevação Lateral na Máquina", info: "4x12-15 | Alta frequência/volume", img: "imagens/elevacao-lateral-maquina.jpg" },
-        { nome: "Tríceps Pulley na Corda (Opcional)", info: "3x12 | Fecha o braço", img: "imagens/triceps-pulley-corda.jpg" }
+        { nome: "Supino Inclinado (Máquina)", info: "4x8-10", img: "img/supino-inclinado-maquina.jpg" },
+        { nome: "Supino Reto (Máquina)", info: "3x10", img: "img/supino-reto-maquina.jpg" },
+        { nome: "Crossover na Polia", info: "3x12-15 | Esmagar o peito no meio", img: "img/crossover-polia.jpg" },
+        { nome: "Elevação Lateral na Máquina", info: "4x12-15 | Alta frequência/volume", img: "img/elevacao-lateral-maquina.jpg" },
+        { nome: "Tríceps Pulley na Corda (Opcional)", info: "3x12 | Fecha o braço", img: "img/triceps-pulley-corda.jpg" }
     ]}
 };
 
