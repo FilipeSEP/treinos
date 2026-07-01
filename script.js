@@ -1,30 +1,56 @@
 // ===== SEUS TREINOS ORIGINAIS =====
+// Cada exercício agora tem um campo "img" apontando para o arquivo
+// dentro da pasta /imagens do repositório. Troque o nome do arquivo
+// pelo nome real da imagem que você vai subir pro GitHub.
 const treinos = {
-    "A": { titulo: "Pernas e Abdominais", exercicios: [
-        { nome: "Leg Press 45º/180º", info: "4x12 | Amplitude" },
-        { nome: "Cadeira Extensora", info: "3x15 | Lento" },
-        { nome: "Mesa/Cadeira Flexora", info: "4x12" },
-        { nome: "Cadeira Adutora", info: "3x15" },
-        { nome: "Panturrilha", info: "4x15" },
-        { nome: "Prancha Abdominal", info: "3x45s" }
+    "A": { titulo: "Costas e Bíceps (Puxar)", exercicios: [
+        { nome: "Puxada Alta no Pulley", info: "4x10-12 | Aquecimento + carga progressiva", img: "imagens/puxada-alta-pulley.jpg" },
+        { nome: "Remada Articulada", info: "3x8-10 | Carga no miolo das costas", img: "imagens/remada-articulada.jpg" },
+        { nome: "Puxada Articulada", info: "3x10-12", img: "imagens/puxada-articulada.jpg" },
+        { nome: "Remada Baixa no Triângulo", info: "3x10-12 | Esmagar escápulas no final", img: "imagens/remada-baixa-triangulo.jpg" },
+        { nome: "Rosca Direta com Halteres", info: "3x8-10 | Básico de braço", img: "imagens/rosca-direta-halteres.jpg" },
+        { nome: "Rosca Scott na Máquina", info: "3x10-12 | Isolamento no pico", img: "imagens/rosca-scott-maquina.jpg" },
+        { nome: "Rosca Martelo com Halteres", info: "3x10-12 | Braquial / volume lateral", img: "imagens/rosca-martelo-halteres.jpg" }
     ]},
-    "B": { titulo: "Peito, Ombros e Tríceps", exercicios: [
-        { nome: "Supino Reto", info: "4x10" },
-        { nome: "Supino Inclinado", info: "3x12 | Halteres" },
-        { nome: "Desenvolvimento", info: "3x10" },
-        { nome: "Elevação Lateral", info: "4x12 | Técnica" },
-        { nome: "Tríceps Pulley", info: "3x12" },
-        { nome: "Tríceps Testa", info: "3x10" }
+    "B": { titulo: "Peito, Ombro e Tríceps (Empurrar)", exercicios: [
+        { nome: "Supino Inclinado (Máquina)", info: "4x8-10 | Peito superior", img: "imagens/supino-inclinado-maquina.jpg" },
+        { nome: "Supino Reto (Máquina)", info: "3x8-10 | Carga com segurança", img: "imagens/supino-reto-maquina.jpg" },
+        { nome: "Crucifixo Inclinado na Polia", info: "3x10-12 | Tensão constante no topo", img: "imagens/crucifixo-inclinado-polia.jpg" },
+        { nome: "Desenvolvimento com Halteres", info: "3x8-10 | Ombro anterior", img: "imagens/desenvolvimento-halteres.jpg" },
+        { nome: "Elevação Lateral na Máquina", info: "4x12-15 | Ombro lateral / largura", img: "imagens/elevacao-lateral-maquina.jpg" }
     ]},
-    "C": { titulo: "Costas e Bíceps", exercicios: [
-        { nome: "Puxada Aberta", info: "4x10" },
-        { nome: "Remada Sentada", info: "4x12 | Triângulo" },
-        { nome: "Remada Curvada", info: "3x12" },
-        { nome: "Rosca Direta", info: "3x12 | Barra W" },
-        { nome: "Rosca Martelo", info: "3x12" },
-        { nome: "Encolhimento", info: "3x15" }
+    "C": { titulo: "Pernas Completo e Panturrilhas", exercicios: [
+        { nome: "Agachamento Hack", info: "4x8-10 | Sem tirar o quadril do banco", img: "imagens/agachamento-hack.jpg" },
+        { nome: "Leg Press 45°", info: "4x10-12 | Carga alta", img: "imagens/leg-press-45.jpg" },
+        { nome: "Cadeira Flexora", info: "4x10-12 | Foco posterior de coxa", img: "imagens/cadeira-flexora.jpg" },
+        { nome: "Cadeira Extensora", info: "3x12-15 | Até a falha total", img: "imagens/cadeira-extensora.jpg" },
+        { nome: "Mesa Flexora", info: "3x10-12", img: "imagens/mesa-flexora.jpg" },
+        { nome: "Panturrilha no Leg Press", info: "4x12-15 | Pausa de 2s no alongamento", img: "imagens/panturrilha-leg-press.jpg" }
+    ]},
+    "D": { titulo: "Costas, Ombros (Posterior) e Bíceps", exercicios: [
+        { nome: "Pull Down na Polia", info: "3x12 | Isola o dorsal", img: "imagens/pull-down-polia.jpg" },
+        { nome: "Puxada Alta no Pulley", info: "3x10-12", img: "imagens/puxada-alta-pulley.jpg" },
+        { nome: "Remada Articulada", info: "3x10", img: "imagens/remada-articulada.jpg" },
+        { nome: "Crucifixo Inverso (Máquina)", info: "4x12-15 | Deltóide posterior", img: "imagens/crucifixo-inverso-maquina.jpg" },
+        { nome: "Face Pull na Polia", info: "3x12-15 | Saúde do ombro", img: "imagens/face-pull-polia.jpg" },
+        { nome: "Rosca Inclinada com Halteres (45°)", info: "3x10-12 | Máximo alongamento", img: "imagens/rosca-inclinada-halteres-45.jpg" },
+        { nome: "Rosca na Polia Baixa", info: "3x12-15 | Tensão constante", img: "imagens/rosca-polia-baixa.jpg" }
+    ]},
+    "E": { titulo: "Peito, Ombro Lateral e Tríceps", exercicios: [
+        { nome: "Supino Inclinado (Máquina)", info: "4x8-10", img: "imagens/supino-inclinado-maquina.jpg" },
+        { nome: "Supino Reto (Máquina)", info: "3x10", img: "imagens/supino-reto-maquina.jpg" },
+        { nome: "Crossover na Polia", info: "3x12-15 | Esmagar o peito no meio", img: "imagens/crossover-polia.jpg" },
+        { nome: "Elevação Lateral na Máquina", info: "4x12-15 | Alta frequência/volume", img: "imagens/elevacao-lateral-maquina.jpg" },
+        { nome: "Tríceps Pulley na Corda (Opcional)", info: "3x12 | Fecha o braço", img: "imagens/triceps-pulley-corda.jpg" }
     ]}
 };
+
+// Placeholder usado quando uma imagem não existe/não carrega
+const IMG_PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+  <rect width="100" height="100" fill="#2c2c2e"/>
+  <text x="50" y="55" font-size="34" text-anchor="middle" fill="#8E8E93">🏋️</text>
+</svg>`);
 
 // ===== CONFIGURAÇÕES =====
 let aguaConsumida = parseInt(localStorage.getItem('agua')) || 0;
@@ -57,17 +83,25 @@ function atualizarAguaUI() {
     document.getElementById('barra-agua').style.width = porcentagem + "%";
 }
 
-// ===== FUNÇÕES DOS TREINOS (SEU CÓDIGO ORIGINAL) =====
+// ===== FUNÇÕES DOS TREINOS (SEU CÓDIGO ORIGINAL + IMAGENS) =====
 function trocarTreino(letra, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
     const treino = treinos[letra];
     document.getElementById('titulo-sessao').innerText = treino.titulo;
-    
+
     const container = document.getElementById('lista-exercicios');
     container.innerHTML = treino.exercicios.map((ex, idx) => `
         <div class="item-ex">
+            <img
+                class="thumb-ex"
+                src="${ex.img}"
+                alt="Execução: ${ex.nome}"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='${IMG_PLACEHOLDER}'; this.classList.add('sem-imagem');"
+                onclick="abrirImagemExecucao('${ex.img.replace(/'/g, "\\'")}', '${ex.nome.replace(/'/g, "\\'")}')"
+            >
             <div class="info-ex">
                 <strong>${ex.nome}</strong>
                 <span>${ex.info}</span>
@@ -75,7 +109,7 @@ function trocarTreino(letra, btn) {
             <input type="checkbox" class="check-ex" data-indice="${idx}" data-treino="${letra}">
         </div>
     `).join('');
-    
+
     // Carregar checkboxes salvos
     const saved = localStorage.getItem(`treino_${letra}`);
     if (saved) {
@@ -85,7 +119,7 @@ function trocarTreino(letra, btn) {
             if (savedChecks[idx]) cb.checked = true;
         });
     }
-    
+
     // Salvar quando clicar
     document.querySelectorAll('.check-ex').forEach(cb => {
         cb.addEventListener('change', function() {
@@ -98,9 +132,39 @@ function trocarTreino(letra, btn) {
     });
 }
 
+// ===== IMAGEM DE EXECUÇÃO EM TELA CHEIA =====
+function abrirImagemExecucao(src, nome) {
+    const modal = document.getElementById('modal-imagem-execucao');
+    const img = document.getElementById('imagem-execucao-grande');
+    const titulo = document.getElementById('nome-exercicio-imagem');
+
+    img.src = src;
+    img.onerror = () => { img.onerror = null; img.src = IMG_PLACEHOLDER; };
+    titulo.textContent = nome;
+    modal.style.display = 'flex';
+}
+
+function fecharImagemExecucao() {
+    document.getElementById('modal-imagem-execucao').style.display = 'none';
+}
+
+function criarModalImagem() {
+    if (document.getElementById('modal-imagem-execucao')) return;
+    document.body.insertAdjacentHTML('beforeend', `
+        <div class="modal" id="modal-imagem-execucao">
+            <div class="modal-imagem-content">
+                <button class="fechar-imagem" id="fechar-imagem" aria-label="Fechar">&times;</button>
+                <img id="imagem-execucao-grande" src="" alt="Execução do exercício">
+                <p id="nome-exercicio-imagem"></p>
+            </div>
+        </div>
+    `);
+    document.getElementById('fechar-imagem').onclick = fecharImagemExecucao;
+}
+
 // ===== FUNÇÕES DE MEDIDAS =====
-const camposMedidas = ['biceps_e', 'biceps_d', 'antebraco_e', 'antebraco_d', 
-                       'coxa_e', 'coxa_d', 'panturrilha_e', 'panturrilha_d', 
+const camposMedidas = ['biceps_e', 'biceps_d', 'antebraco_e', 'antebraco_d',
+                       'coxa_e', 'coxa_d', 'panturrilha_e', 'panturrilha_d',
                        'abdomen', 'peitoral'];
 
 const nomesBonitos = {
@@ -119,12 +183,12 @@ function salvarMedidas() {
             medidas[campo] = parseFloat(input.value);
         }
     });
-    
+
     if (Object.keys(medidas).length === 0) {
         mostrarToast('Preencha pelo menos uma medida!');
         return;
     }
-    
+
     const historico = JSON.parse(localStorage.getItem('historico_medidas') || '[]');
     const novaMedicao = {
         id: Date.now(),
@@ -134,7 +198,7 @@ function salvarMedidas() {
     };
     historico.unshift(novaMedicao);
     localStorage.setItem('historico_medidas', JSON.stringify(historico));
-    
+
     document.getElementById('modal-medidas').style.display = 'none';
     atualizarDisplayMedidas();
     atualizarHistorico();
@@ -145,7 +209,7 @@ function salvarMedidas() {
 function atualizarDisplayMedidas() {
     const historico = JSON.parse(localStorage.getItem('historico_medidas') || '[]');
     if (historico.length === 0) return;
-    
+
     const ultimas = historico[0];
     camposMedidas.forEach(campo => {
         const elemento = document.getElementById(`display-${campo}`);
@@ -159,7 +223,7 @@ function atualizarHistorico() {
     const historico = JSON.parse(localStorage.getItem('historico_medidas') || '[]');
     const container = document.getElementById('lista-historico');
     if (!container) return;
-    
+
     container.innerHTML = historico.slice(0, 10).map(item => {
         const medidasList = camposMedidas.filter(c => item[c]).map(c => `${nomesBonitos[c]}: ${item[c]}cm`).join(' | ');
         return `
@@ -174,17 +238,17 @@ function atualizarHistorico() {
 function atualizarGrafico() {
     const medidaSelecionada = document.getElementById('select-medida')?.value || 'biceps_e';
     const historico = JSON.parse(localStorage.getItem('historico_medidas') || '[]');
-    
+
     const dados = historico.slice().reverse().map(item => ({
         data: item.data,
         valor: item[medidaSelecionada] || 0
     })).filter(d => d.valor > 0);
-    
+
     const ctx = document.getElementById('grafico-medidas')?.getContext('2d');
     if (!ctx) return;
-    
+
     if (window.meuGrafico) window.meuGrafico.destroy();
-    
+
     window.meuGrafico = new Chart(ctx, {
         type: 'line',
         data: {
@@ -230,7 +294,7 @@ function initNavegacao() {
         document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
         document.getElementById('section-treinos').classList.add('active');
     });
-    
+
     document.getElementById('nav-medidas').addEventListener('click', () => {
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         document.getElementById('nav-medidas').classList.add('active');
@@ -239,7 +303,7 @@ function initNavegacao() {
         atualizarDisplayMedidas();
         atualizarHistorico();
     });
-    
+
     document.getElementById('nav-grafico').addEventListener('click', () => {
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         document.getElementById('nav-grafico').classList.add('active');
@@ -251,17 +315,20 @@ function initNavegacao() {
 
 // ===== INICIALIZAÇÃO =====
 window.onload = () => {
+    // Modal de imagem de execução
+    criarModalImagem();
+
     // Água
     atualizarAguaUI();
     document.getElementById('btn-adicionar-agua').onclick = beberAgua;
     document.getElementById('btn-remover-agua').onclick = removerAgua;
-    
+
     // Treinos
     trocarTreino('A', document.querySelector('.tab-btn'));
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.onclick = () => trocarTreino(btn.dataset.treino, btn);
     });
-    
+
     // Medidas
     document.getElementById('btn-nova-medida').onclick = () => {
         document.getElementById('modal-data').textContent = `Data: ${new Date().toLocaleDateString('pt-BR')}`;
@@ -274,18 +341,18 @@ window.onload = () => {
     document.getElementById('salvar-medidas').onclick = salvarMedidas;
     document.getElementById('fechar-modal').onclick = () => document.getElementById('modal-medidas').style.display = 'none';
     document.getElementById('select-medida').onchange = () => atualizarGrafico();
-    
-    // Fechar modal clicando fora
+
+    // Fechar modal clicando fora (funciona pros dois modais, pois ambos usam a classe .modal)
     window.onclick = (e) => {
         if (e.target.classList.contains('modal')) {
             e.target.style.display = 'none';
         }
     };
-    
+
     // Navegação
     initNavegacao();
-    
+
     // Carregar dados iniciais
     atualizarDisplayMedidas();
     atualizarHistorico();
-}; 
+};
