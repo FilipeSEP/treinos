@@ -1,6 +1,6 @@
 // ===== SEUS TREINOS ORIGINAIS =====
 // Cada exercício agora tem um campo "img" apontando para o arquivo
-// dentro da pasta /imagens do repositório. Troque o nome do arquivo
+// dentro da pasta /img do repositório. Troque o nome do arquivo
 // pelo nome real da imagem que você vai subir pro GitHub.
 const treinos = {
     "A": { titulo: "Costas e Bíceps (Puxar)", exercicios: [
@@ -34,7 +34,7 @@ const treinos = {
         { nome: "Crucifixo Inverso (Máquina)", info: "4x12-15 | Deltóide posterior", img: "img/crucifixo-inverso-maquina.jpg" },
         { nome: "Face Pull na Polia", info: "3x12-15 | Saúde do ombro", img: "img/face-pull-polia.jpg" },
         { nome: "Rosca Inclinada com Halteres (45°)", info: "3x10-12 | Máximo alongamento", img: "img/rosca-inclinada-halteres-45.jpg" },
-        { nome: "Rosca na Polia Baixa", info: "3x12-15 | Tensão constante", img: "img/rosca-polia-baixa.jpg" }
+        { nome: "Rosca na Polia Baixa", info: "3x12-15 | Tensão constante", img: "img/rosca-baixa-polia.jpg" }
     ]},
     "E": { titulo: "Peito, Ombro Lateral e Tríceps", exercicios: [
         { nome: "Supino Inclinado (Máquina)", info: "4x8-10", img: "img/supino-inclinado-maquina.jpg" },
@@ -51,6 +51,14 @@ const IMG_PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent(`
   <rect width="100" height="100" fill="#2c2c2e"/>
   <text x="50" y="55" font-size="34" text-anchor="middle" fill="#8E8E93">🏋️</text>
 </svg>`);
+
+// Mapeia o dia da semana (0=domingo) para a letra do treino do dia
+const TREINO_DO_DIA = { 1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E' };
+
+function letraTreinoHoje() {
+    const diaSemana = new Date().getDay();
+    return TREINO_DO_DIA[diaSemana] || 'A'; // fim de semana cai no A
+}
 
 // ===== CONFIGURAÇÕES =====
 let aguaConsumida = parseInt(localStorage.getItem('agua')) || 0;
@@ -83,7 +91,7 @@ function atualizarAguaUI() {
     document.getElementById('barra-agua').style.width = porcentagem + "%";
 }
 
-// ===== FUNÇÕES DOS TREINOS (SEU CÓDIGO ORIGINAL + IMAGENS) =====
+// ===== FUNÇÕES DOS TREINOS (SEU CÓDIGO ORIGINAL + IMAGENS + PROGRESSO) =====
 function trocarTreino(letra, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -93,7 +101,7 @@ function trocarTreino(letra, btn) {
 
     const container = document.getElementById('lista-exercicios');
     container.innerHTML = treino.exercicios.map((ex, idx) => `
-        <div class="item-ex">
+        <div class="item-ex" data-item-indice="${idx}">
             <img
                 class="thumb-ex"
                 src="${ex.img}"
@@ -110,26 +118,48 @@ function trocarTreino(letra, btn) {
         </div>
     `).join('');
 
-    // Carregar checkboxes salvos
+    // Carregar checkboxes salvos (só se foram marcados HOJE; se for de outro dia, reseta)
+    const hoje = new Date().toLocaleDateString('pt-BR');
     const saved = localStorage.getItem(`treino_${letra}`);
     if (saved) {
-        const savedChecks = JSON.parse(saved);
-        document.querySelectorAll('.check-ex').forEach(cb => {
-            const idx = cb.dataset.indice;
-            if (savedChecks[idx]) cb.checked = true;
-        });
+        const savedData = JSON.parse(saved);
+        if (savedData.data === hoje) {
+            document.querySelectorAll('.check-ex').forEach(cb => {
+                const idx = cb.dataset.indice;
+                if (savedData.checks[idx]) {
+                    cb.checked = true;
+                    cb.closest('.item-ex').classList.add('concluido');
+                }
+            });
+        } else {
+            localStorage.removeItem(`treino_${letra}`);
+        }
     }
+
+    atualizarContadorProgresso(letra);
 
     // Salvar quando clicar
     document.querySelectorAll('.check-ex').forEach(cb => {
         cb.addEventListener('change', function() {
+            this.closest('.item-ex').classList.toggle('concluido', this.checked);
+
             const checks = {};
             document.querySelectorAll('.check-ex').forEach(c => {
                 checks[c.dataset.indice] = c.checked;
             });
-            localStorage.setItem(`treino_${letra}`, JSON.stringify(checks));
+            localStorage.setItem(`treino_${letra}`, JSON.stringify({ data: hoje, checks }));
+
+            atualizarContadorProgresso(letra);
         });
     });
+}
+
+function atualizarContadorProgresso(letra) {
+    const el = document.getElementById('contador-progresso');
+    if (!el) return;
+    const total = document.querySelectorAll('.check-ex').length;
+    const feitos = document.querySelectorAll('.check-ex:checked').length;
+    el.textContent = total > 0 ? `${feitos}/${total} concluídos` : '';
 }
 
 // ===== IMAGEM DE EXECUÇÃO EM TELA CHEIA =====
@@ -323,8 +353,10 @@ window.onload = () => {
     document.getElementById('btn-adicionar-agua').onclick = beberAgua;
     document.getElementById('btn-remover-agua').onclick = removerAgua;
 
-    // Treinos
-    trocarTreino('A', document.querySelector('.tab-btn'));
+    // Treinos — abre automaticamente o treino do dia da semana
+    const letraHoje = letraTreinoHoje();
+    const btnHoje = document.querySelector(`.tab-btn[data-treino="${letraHoje}"]`) || document.querySelector('.tab-btn');
+    trocarTreino(letraHoje, btnHoje);
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.onclick = () => trocarTreino(btn.dataset.treino, btn);
     });

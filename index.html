@@ -2,9 +2,19 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#000000">
     <title>My Gym | Treinos e Medidas</title>
+
+    <!-- PWA: instalar como app na tela inicial -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="My Gym">
+    <meta name="mobile-web-app-capable" content="yes">
+
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
@@ -34,15 +44,16 @@
         <!-- ===== SEÇÃO TREINOS (SEU CÓDIGO ORIGINAL) ===== -->
         <div id="section-treinos" class="section active">
             <nav class="tabs">
-                <button class="tab-btn active" data-treino="A">TREINO A</button>
-                <button class="tab-btn" data-treino="B">TREINO B</button>
-                <button class="tab-btn" data-treino="C">TREINO C</button>
-                <button class="tab-btn" data-treino="D">TREINO D</button>
-                <button class="tab-btn" data-treino="E">TREINO E</button>
+                <button class="tab-btn active" data-treino="A">A<span class="tab-dia">SEG</span></button>
+                <button class="tab-btn" data-treino="B">B<span class="tab-dia">TER</span></button>
+                <button class="tab-btn" data-treino="C">C<span class="tab-dia">QUA</span></button>
+                <button class="tab-btn" data-treino="D">D<span class="tab-dia">QUI</span></button>
+                <button class="tab-btn" data-treino="E">E<span class="tab-dia">SEX</span></button>
             </nav>
 
             <main class="lista-container">
                 <h2 id="titulo-sessao">Carregando...</h2>
+                <p id="contador-progresso" class="contador-progresso"></p>
                 <div id="lista-exercicios"></div>
             </main>
         </div>
@@ -163,6 +174,13 @@
     </div>
 
     <div id="toast" class="toast"></div>
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').catch(console.error);
+            });
+        }
+    </script>
 </body>
 </html>
