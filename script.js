@@ -32,7 +32,7 @@ const treinos = {
         { nome: "Pull Down na Polia", info: "3x12 | Isola a grande dorsal", img: "img/pull-down-polia.jpg" },
         { nome: "Crucifixo Inverso (Máquina)", info: "3x12-15 | Deltóide posterior", img: "img/crucifixo-inverso-maquina.jpg" },
         { nome: "Rosca Inclinada com Halteres (45°)", info: "3x10-12 | Foco total em hipertrofiar a bola do bíceps", img: "img/rosca-inclinada-halteres-45.jpg" },
-        { nome: "Rosca na Polia Baixa", info: "3x12-15 | Tensão constante", img: "img/rosca-baixa-polia.jpg" },
+        { nome: "Rosca Bayesiana na Polia Baixa", info: "3x10-12 | Tensão constante com braço projetado para trás", img: "img/rosca-bayesiana-polia.jpg" },
         { nome: "Rosca Inversa na Polia / Barra W", info: "3x12-15 | Hipertrofia de Antebraço e Braquiorradial", img: "img/rosca-inversa.jpg" }
     ]},
     "E": { titulo: "Lower B - Pernas (Posterior/Glúteo) + Core (Sexta)", exercicios: [
