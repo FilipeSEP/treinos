@@ -1,8 +1,3 @@
-// ===== SEUS TREINOS ORIGINAIS =====
-// Cada exercício agora tem um campo "img" apontando para o arquivo
-// dentro da pasta /img do repositório. Troque o nome do arquivo
-// pelo nome real da imagem que você vai subir pro GitHub.
-// ===== SEUS TREINOS ATUALIZADOS (UPPER / LOWER / PUSH / PULL / LEGS) =====
 const treinos = {
     "A": { titulo: "Upper - Superiores Completo (Segunda)", exercicios: [
         { nome: "Supino Inclinado com Halteres", info: "4x8-10 | Foco no peitoral superior", img: "img/supino-inclinado-halteres.jpg" },
@@ -11,7 +6,7 @@ const treinos = {
         { nome: "Remada Articulada", info: "3x10 | Miolo das costas", img: "img/remada-articulada.jpg" },
         { nome: "Rosca Scott na Máquina", info: "3x10-12 | Isolamento e pico de contração", img: "img/rosca-scott-maquina.jpg" },
         { nome: "Tríceps Pulley na Corda", info: "3x10-12 | Extensão total do cotovelo", img: "img/triceps-pulley-corda.jpg" },
-         nome: "Tríceps Francês na Corda", info: "3x10-12 | Extensão total do cotovelo", img: "img/triceps-frances-corda.jpg" }
+        { nome: "Tríceps Francês na Corda", info: "3x10-12 | Extensão total do cotovelo", img: "img/triceps-frances-corda.jpg" }
     ]},
     "B": { titulo: "Lower A - Pernas (Quadríceps) + Core (Terça)", exercicios: [
         { nome: "Agachamento Hack", info: "4x8-10 | Sem tirar o quadril do encosto", img: "img/agachamento-hack.jpg" },
