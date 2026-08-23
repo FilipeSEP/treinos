@@ -10,7 +10,8 @@ const treinos = {
         { nome: "Desenvolvimento com Halteres", info: "3x8-10 | Ombro anterior", img: "img/desenvolvimento-halteres.jpg" },
         { nome: "Remada Articulada", info: "3x10 | Miolo das costas", img: "img/remada-articulada.jpg" },
         { nome: "Rosca Scott na Máquina", info: "3x10-12 | Isolamento e pico de contração", img: "img/rosca-scott-maquina.jpg" },
-        { nome: "Tríceps Pulley na Corda", info: "3x10-12 | Extensão total do cotovelo", img: "img/triceps-pulley-corda.jpg" }
+        { nome: "Tríceps Pulley na Corda", info: "3x10-12 | Extensão total do cotovelo", img: "img/triceps-pulley-corda.jpg" },
+         nome: "Tríceps Francês na Corda", info: "3x10-12 | Extensão total do cotovelo", img: "img/triceps-frances-corda.jpg" }
     ]},
     "B": { titulo: "Lower A - Pernas (Quadríceps) + Core (Terça)", exercicios: [
         { nome: "Agachamento Hack", info: "4x8-10 | Sem tirar o quadril do encosto", img: "img/agachamento-hack.jpg" },
